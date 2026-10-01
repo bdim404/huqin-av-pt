@@ -16,6 +16,7 @@ DATA = Path(os.environ.get("HUQIN_DATA", "data"))
 AUDIO_ROOT = DATA / "audios" / "SinglePT"
 KP_ROOT = DATA / "keypoints"
 MEL_ROOT = DATA / "melcache"
+SPLIT_DIR = Path(os.environ.get("HUQIN_SPLITS", Path(__file__).resolve().parent / "splits"))
 SR = 24000
 AUDIO_LEN = 3 * SR
 KP_LEN = 90
@@ -236,7 +237,7 @@ def main():
     out = args.out or DATA / "runs" / f"{args.model}{tag}"
     out.mkdir(parents=True, exist_ok=True)
     split_name = f"splits_{args.test_player}.json" if args.test_player else "splits.json"
-    split_file = DATA / "splits" / split_name
+    split_file = SPLIT_DIR / split_name
     split_file.parent.mkdir(parents=True, exist_ok=True)
     splits = (json.loads(split_file.read_text()) if split_file.exists()
               else build_manifest(split_file, args.test_player))

@@ -15,8 +15,8 @@ AUDIO, VISUAL, FUSION = "#eb6834", "#1baf7a", "#2a78d6"
 PLAYERS = ["#4a3aa7", "#e87ba4", "#008300"]
 MODELS = [
     ("audio", "", "Audio CRNN", AUDIO),
-    ("kp", "", "Hands, raw", VISUAL),
-    ("kp", "_norm", "Hands, normalised", VISUAL),
+    ("kp", "", "Keypoints, raw", VISUAL),
+    ("kp", "_norm", "Keypoints, normalised", VISUAL),
     ("fusion", "", "Fusion, raw", FUSION),
     ("fusion", "_norm", "Fusion, normalised", FUSION),
 ]
@@ -95,7 +95,7 @@ def fig_results(rows, out):
         ax.spines["left"].set_visible(False)
     axes[0].set_yticks(y)
     axes[0].set_yticklabels([m[2] for m in MODELS], color=INK)
-    fig.supxlabel("macro-F1 (%), mean ± std over 3 runs", color=INK2, fontsize=22)
+    fig.supxlabel("macro-F1 (%), mean ± std: 3 seeds (random split), 3 folds (unseen player)", color=INK2, fontsize=22)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -141,7 +141,7 @@ def fig_confusion(runs, out):
         for i in range(len(CLASSES)):
             for j in range(len(CLASSES)):
                 if i != j and cm[i, j] > 0:
-                    ax.text(j, i, int(cm[i, j]), ha="center", va="center", fontsize=15, color=INK)
+                    ax.text(j, i, int(cm[i, j]), ha="center", va="center", fontsize=21, color=INK)
         ax.set_xticks(range(len(CLASSES)))
         ax.set_yticks(range(len(CLASSES)))
         ax.set_xticklabels(short, rotation=90, fontsize=17)

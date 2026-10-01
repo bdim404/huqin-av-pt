@@ -9,7 +9,7 @@ import torch
 from PIL import Image, ImageDraw, ImageFont
 from torch.utils.data import DataLoader
 
-from lbd_train import CLASSES, DATA, ClipDataset, Model
+from lbd_train import CLASSES, DATA, SPLIT_DIR, ClipDataset, Model
 from render_demo import INK, INK2, SURFACE, draw_icon, fit, overlay_hands
 
 W, H = 1920, 1080
@@ -74,8 +74,9 @@ def render(item, pa, pf, k, n, fonts, out):
     dur = (len(frames) * SLOW * LOOPS + hold) / fps
     ff = subprocess.Popen([
         "ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
-        "-r", f"{fps}", "-i", "-", "-stream_loop", f"{LOOPS - 1}", "-i", str(DATA / item["wav"]), "-filter_complex",
-        f"[1:a]atempo=0.5,atempo={2 / SLOW},apad,atrim=0:{dur},aformat=sample_rates=48000:channel_layouts=stereo[a]",
+        "-r", f"{fps}", "-i", "-", "-i", str(DATA / item["wav"]), "-filter_complex",
+        f"[1:a]apad,atrim=0:{len(frames) / fps},asetpts=N/SR/TB,aloop=loop={LOOPS - 1}:size=2e9,"
+        f"atempo=0.5,atempo={2 / SLOW},apad,atrim=0:{dur},aformat=sample_rates=48000:channel_layouts=stereo[a]",
         "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k", "-t", f"{dur}", str(out)], stdin=subprocess.PIPE)
     seq = [(i, False) for _ in range(LOOPS) for i in range(len(frames)) for _ in range(SLOW)] + [(len(frames) - 1, True)] * hold
@@ -120,7 +121,7 @@ def main():
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    items = json.loads((DATA / "splits" / "splits.json").read_text())["test"]
+    items = json.loads((SPLIT_DIR / "splits.json").read_text())["test"]
     pa = ensemble(items, "audio", False, args.seeds, args.runs, device)
     pf = ensemble(items, "fusion", True, args.seeds, args.runs, device)
     print("ensemble acc audio", np.mean([CLASSES[p.argmax()] == it["label"] for p, it in zip(pa, items)]),

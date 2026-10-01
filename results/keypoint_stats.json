@@ -1,0 +1,25 @@
+{
+  "singlept": {
+    "videos": 8086,
+    "frames": 212077,
+    "frame_level_detection_rate": 0.9974,
+    "median_clip_detection_rate": 1.0,
+    "videos_below_50pct": 12,
+    "below_50pct_by_class": {
+      "DunG": 2,
+      "Pizz": 5,
+      "Trill": 4,
+      "TiaoG": 1
+    },
+    "definition": "a frame counts as detected if MediaPipe finds at least one hand in that camera view"
+  },
+  "excerpts": {
+    "videos": 42,
+    "frames": 81524,
+    "frame_level_detection_rate": 0.9974,
+    "median_clip_detection_rate": 1.0,
+    "videos_below_50pct": 0,
+    "below_50pct_by_class": null,
+    "definition": "a frame counts as detected if MediaPipe finds at least one hand in that camera view"
+  }
+}

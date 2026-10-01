@@ -24,6 +24,12 @@ def find_kp(view, player, piece):
     return next((root / player).rglob(f"{piece}.npz"))
 
 
+def window(kp, start, span):
+    fps = float(kp["fps"])
+    f0 = int(round(start * fps))
+    return kp["lm"][f0:max(int(round((start + span) * fps)), f0 + 1)]
+
+
 def load_models(runs, model, norm, seeds, device):
     out = []
     for s in seeds:
@@ -61,15 +67,13 @@ def main():
         wav, sr = torchaudio.load(str(pt_csv.with_name(pt_csv.name.removesuffix("-PT.csv") + ".wav")))
         wav = torchaudio.functional.resample(wav.mean(0), sr, SR)
         kp = {v: np.load(find_kp(v, player, piece)) for v in ["left", "right"]}
-        fps = float(kp["left"]["fps"])
         for onset, dur, label in notes(pt_csv):
             span = max(dur, args.min_len)
             a = max(onset + dur / 2 - span / 2, 0.0)
             seg = fit_audio(wav[int(a * SR):int((a + span) * SR)])
             batch = {"mel": db(mel(seg)).unsqueeze(0).unsqueeze(0).to(device)}
-            f0, f1 = int(round(a * fps)), max(int(round((a + span) * fps)), int(round(a * fps)) + 1)
             batch["kp"] = torch.from_numpy(np.concatenate(
-                [prep_kp(kp[v]["lm"][f0:f1], True) for v in ["left", "right"]], axis=1)).unsqueeze(0).to(device)
+                [prep_kp(window(kp[v], a, span), True) for v in ["left", "right"]], axis=1)).unsqueeze(0).to(device)
             with torch.no_grad():
                 pa = torch.stack([m(batch).softmax(1) for m in audio_models]).mean(0)[0].cpu().numpy()
                 pf = torch.stack([m(batch).softmax(1) for m in fusion_models]).mean(0)[0].cpu().numpy()

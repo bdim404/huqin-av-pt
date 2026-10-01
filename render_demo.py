@@ -85,7 +85,8 @@ def main():
     fps = caps["front"].get(cv2.CAP_PROP_FPS) or 29.97
     f0, f1 = int(args.start * fps), int(args.end * fps)
     for c in caps.values():
-        c.set(cv2.CAP_PROP_POS_FRAMES, f0)
+        for _ in range(f0):
+            c.grab()
     wav = next((EXCERPT_ROOT / args.player).rglob(f"{args.piece}.wav"))
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
