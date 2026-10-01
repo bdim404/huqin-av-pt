@@ -1,0 +1,90 @@
+{
+  "model": "fusion",
+  "seed": 44,
+  "test_player": null,
+  "kp_norm": false,
+  "test_macro_f1": 0.9700361590060335,
+  "test_micro_f1": 0.9698492462311558,
+  "best_val_macro_f1": 0.9778344759176835,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 0.96,
+      "f1-score": 0.9795918367346939,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.9655172413793104,
+      "recall": 0.9032258064516129,
+      "f1-score": 0.9333333333333333,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.8837209302325582,
+      "recall": 0.8837209302325582,
+      "f1-score": 0.8837209302325582,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 0.9885057471264368,
+      "recall": 0.9885057471264368,
+      "f1-score": 0.9885057471264368,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 0.84375,
+      "recall": 0.9310344827586207,
+      "f1-score": 0.8852459016393442,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9698492462311558,
+    "macro avg": {
+      "precision": 0.9710449017034822,
+      "recall": 0.9696806333244752,
+      "f1-score": 0.9700361590060335,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.9708537298561773,
+      "recall": 0.9698492462311558,
+      "f1-score": 0.9700885939679439,
+      "support": 398.0
+    }
+  }
+}

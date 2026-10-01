@@ -1,0 +1,90 @@
+{
+  "model": "audio",
+  "seed": 44,
+  "test_player": null,
+  "kp_norm": false,
+  "test_macro_f1": 0.9538349947050612,
+  "test_micro_f1": 0.9597989949748744,
+  "best_val_macro_f1": 0.9678356446542815,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.9285714285714286,
+      "recall": 0.8387096774193549,
+      "f1-score": 0.8813559322033898,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.918918918918919,
+      "recall": 0.7906976744186046,
+      "f1-score": 0.85,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 0.9883720930232558,
+      "recall": 0.9770114942528736,
+      "f1-score": 0.9826589595375722,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 0.7837837837837838,
+      "recall": 1.0,
+      "f1-score": 0.8787878787878788,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 0.9807692307692307,
+      "recall": 1.0,
+      "f1-score": 0.9902912621359223,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9597989949748744,
+    "macro avg": {
+      "precision": 0.9485226171272683,
+      "recall": 0.9642198950991666,
+      "f1-score": 0.9538349947050612,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.9628221785373825,
+      "recall": 0.9597989949748744,
+      "f1-score": 0.9595440220535401,
+      "support": 398.0
+    }
+  }
+}

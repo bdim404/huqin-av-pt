@@ -1,0 +1,90 @@
+{
+  "model": "fusion",
+  "seed": 43,
+  "test_player": null,
+  "kp_norm": false,
+  "test_macro_f1": 0.9722921705866959,
+  "test_micro_f1": 0.9673366834170855,
+  "best_val_macro_f1": 0.977305336259868,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.9393939393939394,
+      "recall": 1.0,
+      "f1-score": 0.96875,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.9285714285714286,
+      "recall": 0.9069767441860465,
+      "f1-score": 0.9176470588235294,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 0.9550561797752809,
+      "recall": 0.9770114942528736,
+      "f1-score": 0.9659090909090909,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 0.9285714285714286,
+      "recall": 0.896551724137931,
+      "f1-score": 0.9122807017543859,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 0.9629629629629629,
+      "recall": 1.0,
+      "f1-score": 0.9811320754716981,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 0.9791666666666666,
+      "recall": 0.9215686274509803,
+      "f1-score": 0.9494949494949495,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9673366834170855,
+    "macro avg": {
+      "precision": 0.9721566005401552,
+      "recall": 0.9729189627298029,
+      "f1-score": 0.9722921705866959,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.9674441699895514,
+      "recall": 0.9673366834170855,
+      "f1-score": 0.9671205557183076,
+      "support": 398.0
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "model": "fusion",
+  "seed": 42,
+  "test_player": null,
+  "kp_norm": true,
+  "test_macro_f1": 0.9831286015446807,
+  "test_micro_f1": 0.9824120603015075,
+  "best_val_macro_f1": 0.9689304144154396,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.9375,
+      "recall": 0.967741935483871,
+      "f1-score": 0.9523809523809523,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.9743589743589743,
+      "recall": 0.8837209302325582,
+      "f1-score": 0.926829268292683,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 0.9886363636363636,
+      "recall": 1.0,
+      "f1-score": 0.9942857142857143,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 0.90625,
+      "recall": 1.0,
+      "f1-score": 0.9508196721311475,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 1.0,
+      "recall": 0.9803921568627451,
+      "f1-score": 0.9900990099009901,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9824120603015075,
+    "macro avg": {
+      "precision": 0.9824313943632125,
+      "recall": 0.9847140929617431,
+      "f1-score": 0.9831286015446807,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.983046606868843,
+      "recall": 0.9824120603015075,
+      "f1-score": 0.9822842844221252,
+      "support": 398.0
+    }
+  }
+}

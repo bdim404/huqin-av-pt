@@ -1,0 +1,17 @@
+/*
+!/.gitignore
+!/README.md
+!/build_erhu_manifest.py
+!/extract_hand_keypoints.py
+!/precompute_mels.py
+!/lbd_train.py
+!/demo_excerpts.py
+!/render_demo.py
+!/make_figures.py
+!/pipeline.sh
+!/splits/
+!/render_clips.py
+!/results/
+/results/*
+!/results/runs/
+!/results/demo/

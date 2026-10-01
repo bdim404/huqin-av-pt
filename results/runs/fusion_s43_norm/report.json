@@ -1,0 +1,90 @@
+{
+  "model": "fusion",
+  "seed": 43,
+  "test_player": null,
+  "kp_norm": true,
+  "test_macro_f1": 0.9857902784460735,
+  "test_micro_f1": 0.9849246231155779,
+  "best_val_macro_f1": 0.9845175171777553,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.9117647058823529,
+      "recall": 1.0,
+      "f1-score": 0.9538461538461539,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.9523809523809523,
+      "recall": 0.9302325581395349,
+      "f1-score": 0.9411764705882353,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 0.9886363636363636,
+      "recall": 1.0,
+      "f1-score": 0.9942857142857143,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 1.0,
+      "recall": 0.9310344827586207,
+      "f1-score": 0.9642857142857143,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 1.0,
+      "recall": 0.9803921568627451,
+      "f1-score": 0.9900990099009901,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9849246231155779,
+    "macro avg": {
+      "precision": 0.9866165474454245,
+      "recall": 0.9856053816146274,
+      "f1-score": 0.9857902784460735,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.9854986192741144,
+      "recall": 0.9849246231155779,
+      "f1-score": 0.9849296768005484,
+      "support": 398.0
+    }
+  }
+}

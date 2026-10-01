@@ -1,0 +1,90 @@
+{
+  "model": "audio",
+  "seed": 42,
+  "test_player": null,
+  "kp_norm": false,
+  "test_macro_f1": 0.9724690658055635,
+  "test_micro_f1": 0.9723618090452262,
+  "best_val_macro_f1": 0.965736054770403,
+  "per_class": {
+    "DianG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "DuanG": {
+      "precision": 0.967741935483871,
+      "recall": 0.967741935483871,
+      "f1-score": 0.967741935483871,
+      "support": 31.0
+    },
+    "DunG": {
+      "precision": 0.9714285714285714,
+      "recall": 0.7906976744186046,
+      "f1-score": 0.8717948717948718,
+      "support": 43.0
+    },
+    "JiG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 5.0
+    },
+    "PaoG": {
+      "precision": 0.9696969696969697,
+      "recall": 1.0,
+      "f1-score": 0.9846153846153847,
+      "support": 32.0
+    },
+    "Pizz": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18.0
+    },
+    "Port": {
+      "precision": 1.0,
+      "recall": 0.9885057471264368,
+      "f1-score": 0.9942196531791907,
+      "support": 87.0
+    },
+    "TiaoG": {
+      "precision": 0.7837837837837838,
+      "recall": 1.0,
+      "f1-score": 0.8787878787878788,
+      "support": 29.0
+    },
+    "Tremolo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 26.0
+    },
+    "Trill": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "Vibrato": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "accuracy": 0.9723618090452262,
+    "macro avg": {
+      "precision": 0.9720592054902906,
+      "recall": 0.9769950324571739,
+      "f1-score": 0.9724690658055635,
+      "support": 398.0
+    },
+    "weighted avg": {
+      "precision": 0.9762097018378424,
+      "recall": 0.9723618090452262,
+      "f1-score": 0.9723035932319344,
+      "support": 398.0
+    }
+  }
+}
