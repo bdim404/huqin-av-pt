@@ -17,11 +17,12 @@ A log-mel CRNN is fused with a BiGRU over MediaPipe hand landmarks from the left
 - `lbd_train.py` trains and evaluates one model (`--model audio|kp|fusion`, `--kp-norm`, `--seed`, `--test-player`).
 - `precompute_mels.py`, `extract_hand_keypoints.py` compute log-mel and MediaPipe hand-landmark features.
 - `demo_excerpts.py` classifies the PT-annotated notes of the 21 erhu excerpts with 3-seed ensembles; `render_clips.py` and `render_demo.py` render the demo video; `make_figures.py` draws the poster figures from `results/`.
-- `pipeline.sh` runs everything above end to end.
+- `pipeline.sh` runs feature extraction, all 30 training runs and the excerpt evaluation; the rendering and figure scripts are run separately.
+- `keypoint_stats.py` summarises the hand-detection manifests into `results/keypoint_stats.json`.
 - `build_erhu_manifest.py` writes dataset statistics (clip and note counts per performer and technique).
 - `splits/` holds the exact train/val/test splits (random split and the three leave-one-player-out folds), with paths relative to the data root.
 - `results/runs/` holds the test report and confusion matrix of all 30 runs; `results/demo/pred_min0.6.json` the note-level excerpt predictions; `results/keypoint_stats.json` the hand-detection statistics.
-- Model weights (`best.pt` of all 30 runs) are attached to the [v1.0 release](https://github.com/bdim404/huqin-av-pt/releases/tag/v1.0); unpack them into `$HUQIN_DATA/runs/`.
+- Model weights (`best.pt` of all 30 runs) are attached to the [v1.0 release](https://github.com/bdim404/huqin-av-pt/releases/tag/v1.0); unpack with `tar xzf huqin-av-pt-weights.tar.gz -C $HUQIN_DATA` to get `$HUQIN_DATA/runs/<run>/best.pt`.
 
 ## Setup
 
@@ -58,7 +59,7 @@ python lbd_train.py --model audio --test-player Erhu-1
 python demo_excerpts.py --out $HUQIN_DATA/demo/pred_min0.6.json
 python render_clips.py --font-dir /path/to/fira-sans
 python render_demo.py --player Erhu-1 --piece Henan_Xiao_Qu-part1 --start 8 --end 40 --pred $HUQIN_DATA/demo/pred_min0.6.json --font-dir /path/to/fira-sans --out excerpt_demo.mp4
-python make_figures.py results/runs --font-dir /path/to/fira-sans
+python make_figures.py results/runs --out figures --font-dir /path/to/fira-sans --norm-npz <one left-hand npz per player>
 ```
 
 `lbd_train.py` reads splits from `splits/` (override with `HUQIN_SPLITS`) and writes runs to `$HUQIN_DATA/runs/`.

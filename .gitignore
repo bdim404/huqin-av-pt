@@ -18,3 +18,4 @@
 !/LICENSE
 !/requirements.txt
 !/results/keypoint_stats.json
+!/keypoint_stats.py

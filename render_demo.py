@@ -84,9 +84,9 @@ def main():
     kps = {v: np.load(find(KP_EXC_ROOT, v, args.player, args.piece, ".npz"))["lm"] for v in ["left", "right"]}
     fps = caps["front"].get(cv2.CAP_PROP_FPS) or 29.97
     f0, f1 = int(args.start * fps), int(args.end * fps)
-    for c in caps.values():
-        for _ in range(f0):
-            c.grab()
+    vfps = {v: c.get(cv2.CAP_PROP_FPS) or fps for v, c in caps.items()}
+    kfps = {v: float(np.load(find(KP_EXC_ROOT, v, args.player, args.piece, ".npz"))["fps"]) for v in kps}
+    pos = {v: 0 for v in caps}
     wav = next((EXCERPT_ROOT / args.player).rglob(f"{args.piece}.wav"))
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -104,7 +104,12 @@ def main():
         t = fi / fps
         frames = {}
         for v, c in caps.items():
+            tgt = int(round(t * vfps[v]))
+            while pos[v] < tgt:
+                c.grab()
+                pos[v] += 1
             ok, fr = c.read()
+            pos[v] += 1
             frames[v] = cv2.cvtColor(fr, cv2.COLOR_BGR2RGB) if ok else np.zeros((720, 1280, 3), np.uint8)
         img = Image.new("RGB", (W, H), SURFACE)
         fr, _ = fit(frames["front"], front_w, top_h)
@@ -114,7 +119,7 @@ def main():
             fr, box = fit(frames[v], hand_w, hand_h)
             ox, oy = front_w + 12, k * (hand_h + 12)
             img.paste(Image.fromarray(fr), (ox, oy))
-            lm = kps[v][min(fi, len(kps[v]) - 1)]
+            lm = kps[v][min(int(round(t * kfps[v])), len(kps[v]) - 1)]
             overlay_hands(d, lm, box, ox, oy)
             d.rounded_rectangle([ox + 14, oy + 14, ox + 210, oy + 54], 8, fill=(11, 11, 11))
             d.text((ox + 26, oy + 20), f"{'Left' if v == 'left' else 'Right'}-hand camera", font=f["tag"], fill="#ffffff")

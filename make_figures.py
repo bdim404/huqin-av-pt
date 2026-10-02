@@ -95,7 +95,7 @@ def fig_results(rows, out):
         ax.spines["left"].set_visible(False)
     axes[0].set_yticks(y)
     axes[0].set_yticklabels([m[2] for m in MODELS], color=INK)
-    fig.supxlabel("macro-F1 (%), mean ± std: 3 seeds (random split), 3 folds (unseen player)", color=INK2, fontsize=22)
+    fig.supxlabel("macro-F1 (%), mean ± std: 3 seeds (random split), 3 folds, seed 42 (unseen player)", color=INK2, fontsize=22)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
